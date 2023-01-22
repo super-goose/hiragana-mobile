@@ -8,15 +8,9 @@ import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { RowBox } from '../ui/RowBox';
 import { TextBlockMd } from '../ui/TextBlock';
-import { h } from '../utils/hiragana';
+import { k } from '../utils/katakana';
 
-enum Mode {
-  Reference = 'ref',
-  Quiz = 'qui',
-}
-
-
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function TabThreeScreen({ navigation }: RootTabScreenProps<'TabThree'>) {
   const [referenceMode, setReferenceMode] = useState<boolean>(false);
   // useEffect(() => {
   //   Keyboard
@@ -42,7 +36,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         />
         <TextBlockMd>reference</TextBlockMd>
       </RowBox>
-      <Table kana={h} presentation={presentation} />
+      <Table kana={k} presentation={presentation} />
     </View>
   );
 }

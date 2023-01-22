@@ -3,32 +3,26 @@ import { View, Text } from 'react-native';
 
 const Cell: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <View style={{ flex: 1, borderRightWidth: 1, borderBottomWidth: 1, borderColor: 'black' }}>
-      <Text style={{ color: 'white' }}>
-        {children}
-      </Text>
+    <View style={{ flex: 1, alignSelf: 'stretch' }}>
+      {children}
     </View>
   );
 }
 
-export const Row: React.FC = () => {
-  return (
-    <View>
-      <View>
-
-      </View>
-    </View>
-  );
-}
-
-type HeaderProps = {
+type TRowProps = {
   elements: string[];
 }
-export const Header: React.FC<HeaderProps> = ({ elements }) => {
+
+export const Row: React.FC<TRowProps> = ({ elements }) => {
   return (
-    <View style={{ width: '100%', flexDirection: 'row' }}>
-      <Cell />
-      {elements.map((e) => <Cell>{e}</Cell>)}
+    <View style={{ width: '100%', flexDirection: 'row', height: 55 }}>
+      {elements.map((e) => <Cell key={`-${Math.floor(Math.random() * 10000000)}`}>{e}</Cell>)}
     </View>
+  );
+}
+
+export const Header: React.FC<TRowProps> = ({ elements }) => {
+  return (
+    <Row elements={[' ', ...elements]} />
   );
 }
